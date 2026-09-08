@@ -7,7 +7,7 @@
 <meta name="description" content="Antoine Gagnebin — PIMS Postdoctoral Fellow in mathematics at Simon Fraser University. Kinetic theory, Vlasov equations, plasma physics.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
 <style>
   :root {
     --paper: #ffffff;
@@ -35,24 +35,23 @@
     font-family: "Newsreader", Georgia, "Times New Roman", serif;
     font-size: 19px;
     font-weight: 300;
-    line-height: 1.62;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 
   .page {
-    max-width: 40rem;
+    max-width: 42rem;
     margin: 0 auto;
     padding: 4.5rem 1.5rem 6rem;
   }
 
-  /* --- Header --- */
-
-  header { margin-bottom: 3.25rem; }
+  /* --- En-tête --- */
 
   .portrait {
     width: 118px;
     height: 118px;
     object-fit: cover;
+    object-position: center top;
     border-radius: 2px;
     float: right;
     margin: 0.4rem 0 1rem 1.75rem;
@@ -72,24 +71,46 @@
     margin: 0 0 1.4rem;
   }
 
-  nav a {
-    margin-right: 1.4rem;
-    white-space: nowrap;
+  nav {
+    line-height: 2;
+    margin-bottom: 3rem;
   }
+  nav a { margin-right: 1.35rem; white-space: nowrap; }
 
   /* --- Sections --- */
 
   section {
     border-top: 1px solid var(--rule);
     padding-top: 1.5rem;
-    margin-top: 2.75rem;
+    margin-top: 3rem;
+    scroll-margin-top: 1.5rem;
+  }
+  section:first-of-type {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
   }
 
   h2 {
-    font-size: 1.02rem;
+    font-size: 1.05rem;
     font-weight: 500;
-    letter-spacing: 0.01em;
-    margin: 0 0 1rem;
+    margin: 0 0 1.1rem;
+  }
+
+  h3 {
+    font-size: 0.97rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+    margin: 2rem 0 0.85rem;
+  }
+
+  h4 {
+    font-size: 0.94rem;
+    font-weight: 400;
+    color: var(--muted);
+    margin: 1.5rem 0 0.7rem;
+    padding-left: 0.9rem;
   }
 
   p { margin: 0 0 1.05rem; }
@@ -98,7 +119,7 @@
   a {
     color: var(--link);
     text-decoration: none;
-    border-bottom: 1px solid color-mix(in srgb, var(--link) 35%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--link) 32%, transparent);
   }
   a:hover { border-bottom-color: var(--link); }
   a:focus-visible {
@@ -107,7 +128,7 @@
     border-radius: 1px;
   }
 
-  /* --- Publication list --- */
+  /* --- Listes --- */
 
   ol.papers {
     list-style: none;
@@ -115,13 +136,11 @@
     padding: 0;
     counter-reset: paper;
   }
-
   ol.papers li {
     position: relative;
-    padding-left: 2rem;
-    margin-bottom: 1.35rem;
+    padding-left: 2.1rem;
+    margin-bottom: 1.4rem;
   }
-
   ol.papers li::before {
     counter-increment: paper;
     content: "[" counter(paper) "]";
@@ -129,45 +148,41 @@
     left: 0;
     top: 0;
     color: var(--muted);
-    font-size: 0.86rem;
-    line-height: 1.9;
+    font-size: 0.85rem;
+    line-height: 1.95;
   }
 
-  .authors, .venue {
-    color: var(--muted);
-    font-size: 0.94rem;
-  }
-
-  .title { display: block; }
-
-  ul.plain {
+  ul.entries {
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  ul.plain li { margin-bottom: 0.75rem; }
+  ul.entries li {
+    padding-left: 0.9rem;
+    border-left: 1px solid var(--rule);
+    margin-bottom: 1.05rem;
+  }
 
-  .term {
+  .meta {
+    display: block;
     color: var(--muted);
-    font-style: italic;
-    font-size: 0.94rem;
+    font-size: 0.93rem;
   }
 
   footer {
-    margin-top: 4rem;
+    margin-top: 4.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
     color: var(--muted);
     font-size: 0.86rem;
   }
 
-  @media (max-width: 30rem) {
+  @media (max-width: 32rem) {
     body { font-size: 18px; }
     .page { padding-top: 3rem; }
     h1 { font-size: 1.95rem; }
-    .portrait {
-      float: none;
-      display: block;
-      margin: 0 0 1.5rem;
-    }
+    .portrait { float: none; display: block; margin: 0 0 1.5rem; }
+    nav a { margin-right: 1.1rem; }
   }
 </style>
 </head>
@@ -175,56 +190,159 @@
 <div class="page">
 
   <header>
-    <!-- Dépose ta photo à côté de index.html sous le nom photo.jpg -->
-    <img class="portrait" src="photo.jpg" alt="Antoine Gagnebin">
+    <img class="portrait" src="avatar.png" alt="Antoine Gagnebin">
     <h1>Antoine Gagnebin</h1>
     <p class="role">PIMS Postdoctoral Fellow, Department of Mathematics, Simon Fraser University</p>
     <nav>
+      <a href="#about">About</a>
       <a href="#research">Research</a>
       <a href="#papers">Papers</a>
+      <a href="#talks">Talks</a>
       <a href="#teaching">Teaching</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section id="about" style="border-top: none; padding-top: 0; margin-top: 0;">
-    <p>I am a PIMS Postdoctoral Fellow in the Department of Mathematics at Simon Fraser University, where I work with <a href="https://www.sfu.ca/math/people/faculty/wsun.html">Weiran Sun</a>. Before that I completed my PhD at ETH Zürich under the supervision of Prof. <a href="https://people.math.ethz.ch/~imikaela/">Mikaela Iacobelli</a>.</p>
-    <p>I obtained my Master's degree in mathematics from the University of Neuchâtel in 2020 and my Bachelor's degree in 2018, including one year as an Erasmus student at Durham University. My <a href="CV_Antoine_Gagnebin.pdf">CV</a> is available here.</p>
+  <section id="about">
+    <p>I am a PIMS Postdoctoral Fellow in the Department of Mathematics at Simon Fraser University, where I work with <a href="https://weiran-sun.github.io">Weiran Sun</a>. I completed my PhD at ETH Zürich under the supervision of Prof. Dr. <a href="https://people.math.ethz.ch/~imikaela/">Mikaela Iacobelli</a>.</p>
+    <p>I obtained my Master's degree in mathematics from the University of Neuchâtel in 2020 and my Bachelor's degree in 2018. During my Bachelor's, I studied for one year as an Erasmus student at Durham University (UK).</p>
+    <p>You can look at my <a href="CV_Antoine_Gagnebin.pdf">CV</a> here.</p>
   </section>
 
   <section id="research">
-    <h2>Research</h2>
-    <p>My research focuses on kinetic theory, in particular on Vlasov-type equations, which describe the dynamics of particles in plasmas. I am especially interested in the long-time behaviour and stability of such systems, including Landau damping.</p>
-    <p>More recently my work has concentrated on the quasineutral limit in plasmas for the Vlasov–Maxwell system, and on the global well-posedness of the magnetized Vlasov–Poisson equation.</p>
+    <h2>Research interests</h2>
+    <p>My research focuses on kinetic theory, in particular on Vlasov-type equations, which describe the dynamics of particles in plasmas. I am especially interested in problems related to the long-time behaviour and stability of such systems, including Landau damping.</p>
+    <p>More recently, my work has concentrated on the quasineutral limit in plasmas for the Vlasov–Maxwell system, as well as on the global well-posedness of the magnetized Vlasov–Poisson equation.</p>
   </section>
 
   <section id="papers">
-    <h2>Preprints and publications</h2>
-    <!-- Un <li> par article. Supprime la ligne .venue pour un preprint sans journal. -->
+    <h2>Publications</h2>
+
+    <h3>Accepted and published papers</h3>
     <ol class="papers">
       <li>
-        <span class="title"><a href="https://arxiv.org/abs/XXXX.XXXXX">Title of the paper</a></span>
-        <span class="authors">with Co-author</span><br>
-        <span class="venue">Journal Name, vol. (year), pp. — arXiv:XXXX.XXXXX</span>
+        <a href="https://ems.press/journals/aihpc/articles/14298910">Scattering problem for Vlasov-type equations on the d-dimensional torus with Gevrey data</a>, in collaboration with Dario Benedetto, Emanuele Caglioti, Mikaela Iacobelli, Stefano Rossi.
+        <span class="meta">Ann. Inst. H. Poincaré C Anal. Non Linéaire (2025). <a href="https://arxiv.org/pdf/2405.10182">pdf</a></span>
       </li>
       <li>
-        <span class="title"><a href="https://arxiv.org/abs/XXXX.XXXXX">Title of the preprint</a></span>
-        <span class="authors">with Co-author</span><br>
-        <span class="venue">Preprint, 2026 — arXiv:XXXX.XXXXX</span>
+        <a href="https://www.aimsciences.org/article/doi/10.3934/krm.2023024">Backward problem for the 1D ionic Vlasov-Poisson equation</a>.
+        <span class="meta">Kinetic and Related Models, 2024, 17(2): 312–330. <a href="https://arxiv.org/pdf/2210.06123.pdf">pdf</a></span>
+      </li>
+      <li>
+        <a href="https://www.sciencedirect.com/science/article/pii/S0022039623005545">Landau damping on the torus for the Vlasov-Poisson system with massless electrons</a>, in collaboration with Mikaela Iacobelli.
+        <span class="meta">J. of Differential Equations 376 (2023), 154–203. <a href="https://arxiv.org/pdf/2209.04676.pdf">pdf</a></span>
+      </li>
+    </ol>
+
+    <h3>Preprints</h3>
+    <ol class="papers">
+      <li>
+        <a href="https://arxiv.org/abs/2510.22753">Propagation of velocity moments for the magnetized Vlasov-Poisson system with space-time dependent magnetic fields</a>, in collaboration with Immanuel Ben-Porat, Mikaela Iacobelli, Jonathan Junné.
+        <span class="meta">arXiv:2510.22753</span>
+      </li>
+      <li>
+        <a href="https://arxiv.org/abs/2505.11428">From relativistic Vlasov-Maxwell to electron-MHD in the quasineutral regime</a>, in collaboration with Mikaela Iacobelli, Alexandre Rege, Stefano Rossi.
+        <span class="meta">arXiv:2505.11428</span>
       </li>
     </ol>
   </section>
 
+  <section id="talks">
+    <h2>Talks</h2>
+    <ul class="entries">
+      <li>
+        Landau damping and final data problem on the torus
+        <span class="meta"><a href="https://indico.math.cnrs.fr/event/13197/">Arpilysm 1: Applications of Mathematics to Mathematics</a>, Arpino, Italy, November 2024.</span>
+      </li>
+      <li>
+        Final data problem for Vlasov-type equations
+        <span class="meta"><a href="https://nccr-swissmap.ch/news-and-events/events/swissmap-annual-general-meeting-4?occurrenceID=1605">SwissMAP Annual General Meeting</a>, Les Diablerets, Switzerland, September 2024.</span>
+      </li>
+      <li>
+        Asymptotic time behaviour of Vlasov-type equations
+        <span class="meta"><a href="https://numbertheory.dmi.unibas.ch/doctoraldays2024/">Swiss Mathematical Society Doctoral Day 2024</a>, University of Basel, Switzerland, May 2024.</span>
+      </li>
+      <li>
+        Landau damping for Vlasov-type systems on the torus
+        <span class="meta"><a href="https://people.math.ethz.ch/~hintzp/2024-symposium">Minisymposium on PDE and Mathematical Physics</a>, ETH Zürich, Switzerland, April 2024.</span>
+      </li>
+      <li>
+        Landau damping in plasma physics
+        <span class="meta"><a href="http://astro.fisica.unifi.it/vlasovia2024/index.html">Vlasovia 2024: Seventh International Workshop on the Theory and Applications of the Vlasov Equation</a>, Florence, Italy, January 2024.</span>
+      </li>
+      <li>
+        Landau damping for Vlasov-type systems
+        <span class="meta"><a href="https://www.mfo.de/occasion/2346b/www_view">Oberwolfach Graduate Seminar: Optimal Transport Theory and Hydrodynamics</a>, Będlewo, Poland, November 2023.</span>
+      </li>
+      <li>
+        Landau damping for Vlasov-type systems
+        <span class="meta"><a href="https://nccr-swissmap.ch/news-and-events/events/swissmap-annual-general-meeting-2?occurrenceID=1235">SwissMAP Annual General Meeting</a>, Les Diablerets, Switzerland, September 2023.</span>
+      </li>
+    </ul>
+
+    <h3>Poster presentations</h3>
+    <ul class="entries">
+      <li><a href="https://www.math.lmu.de/~nam/MPDE2024.html">Mathematical Physics and PDEs</a><span class="meta">Herrsching, Germany, December 2024.</span></li>
+      <li>SwissMAP Site Visit Poster Session<span class="meta">University of Geneva, Switzerland, May 2023.</span></li>
+      <li><a href="https://conferences.cirm-math.fr/2625.html">Kinetic Theory</a><span class="meta">CIRM Marseille, France, November 2022.</span></li>
+    </ul>
+
+    <h3>Conferences attended</h3>
+    <ul class="entries">
+      <li><a href="https://indico.cern.ch/event/1225629/">Phase mixing, kinetic theory and fluid mechanics</a><span class="meta">SwissMAP Research Station Les Diablerets, Switzerland, February 2024.</span></li>
+      <li><a href="https://math.ethz.ch/fim/activities/conferences/past-conferences/2024/kinetic-and-hydrodynamic-PDEs.html">Kinetic and hydrodynamic PDEs</a><span class="meta">ETH Zürich, Switzerland, January 2024.</span></li>
+      <li><a href="https://sites.google.com/view/icl-stable-chaos/home/">Stability and dynamics in fluid mechanics and kinetic theory</a><span class="meta">Imperial College London, UK, July 2023.</span></li>
+      <li><a href="https://www.birs.ca/events/2023/5-day-workshops/23w6003">Nonlinear diffusion and nonlocal interaction models</a><span class="meta">BIRS Granada, Spain, May 2023.</span></li>
+      <li><a href="https://math.ethz.ch/fim/activities/conferences/past-conferences/2022/when-kinetic-theory-meets-fluid-mechanics.html">When kinetic theory meets fluid mechanics</a><span class="meta">ETH Zürich, Switzerland, July 2022.</span></li>
+      <li><a href="https://www.newton.ac.uk/event/fktw03/">Frontiers in kinetic equations for plasmas and collective behaviour</a><span class="meta">University of Cambridge, UK, April 2022.</span></li>
+    </ul>
+  </section>
+
   <section id="teaching">
     <h2>Teaching</h2>
-    <ul class="plain">
-      <li>Course title <span class="term">— Simon Fraser University, Fall 2026</span></li>
-      <li>Course title <span class="term">— ETH Zürich, Spring 2025</span></li>
+
+    <h3>ETH Zürich</h3>
+
+    <h4>Lectures</h4>
+    <ul class="entries">
+      <li>Mathematik I, course organiser<span class="meta">Lecturer: Prof. Dr. <a href="https://www.mathematik.uni-muenchen.de/personen/professoren/geldhauser/index.html">Nikita Geldhauser</a>, Fall 2025.</span></li>
+      <li>Analysis III, course organiser<span class="meta">Lecturer: Prof. Dr. <a href="https://people.math.ethz.ch/~iozzi/">Alessandra Iozzi</a>, Fall 2024.</span></li>
+      <li>Euclidean Harmonic Analysis, course organiser<span class="meta">Lecturer: Dr. <a href="https://people.math.ethz.ch/~sibecker/about">Simon Becker</a>, Spring 2024.</span></li>
+      <li>Analysis III, course organiser<span class="meta">Lecturer: Prof. Dr. <a href="https://people.math.ethz.ch/~iozzi/">Alessandra Iozzi</a>, Fall 2023.</span></li>
+      <li>Analysis III, course organiser<span class="meta">Lecturer: Prof. Dr. <a href="https://people.math.ethz.ch/~iozzi/">Alessandra Iozzi</a>, Fall 2022.</span></li>
+      <li>Analysis III, course organiser<span class="meta">Lecturer: Prof. Dr. <a href="https://people.math.ethz.ch/~iozzi/">Alessandra Iozzi</a>, Fall 2021.</span></li>
+      <li>Mathematical Methods of Physics I, teaching assistant for exercise classes<span class="meta">Lecturer: Prof. Dr. <a href="https://people.math.ethz.ch/~wilthoma/">Thomas Willwacher</a>, Fall 2020.</span></li>
+    </ul>
+
+    <h4>Seminars</h4>
+    <ul class="entries">
+      <li><a href="https://metaphor.ethz.ch/x/2022/fs/401-4820-22L/">An Introduction to Mean-Field Limits for Vlasov Equations</a>, course organiser<span class="meta">Lecturers: Prof. Dr. <a href="https://people.math.ethz.ch/~imikaela/">Mikaela Iacobelli</a> and Dr. <a href="https://arege.pages.math.cnrs.fr">Alexandre Rege</a>, Spring 2022.</span></li>
+      <li><a href="https://metaphor.ethz.ch/x/2021/fs/401-4350-21L/">Topics in Non-Collisional Kinetic Theory</a>, course organiser<span class="meta">Lecturers: Prof. Dr. <a href="https://people.math.ethz.ch/~imikaela/">Mikaela Iacobelli</a> and Dr. <a href="https://ludoviccesbron.wordpress.com/about/">Ludovic Cesbron</a>, Spring 2021.</span></li>
+    </ul>
+
+    <h4>Student supervision</h4>
+    <ul class="entries">
+      <li>David Arthur, Master's student<span class="meta">ETH Zürich, 2025, co-supervision with Prof. Dr. <a href="https://people.math.ethz.ch/~imikaela/">Mikaela Iacobelli</a>.</span></li>
+      <li>Anton Enste, Bachelor's student<span class="meta">ETH Zürich, 2024, co-supervision with Prof. Dr. <a href="https://people.math.ethz.ch/~imikaela/">Mikaela Iacobelli</a>.</span></li>
+      <li>Eva Lia Tarquini, Bachelor's student<span class="meta">ETH Zürich, 2024, co-supervision with Prof. Dr. <a href="https://people.math.ethz.ch/~imikaela/">Mikaela Iacobelli</a>.</span></li>
+    </ul>
+
+    <h3>University of Neuchâtel</h3>
+    <ul class="entries">
+      <li>Complements to General Physics II, teaching assistant<span class="meta">Prof. Dr. <a href="https://www.unine.ch/physique/enseignements/gaetano-mileti/">Gaetano Mileti</a>, Spring 2020.</span></li>
+      <li>Complements to General Physics I, teaching assistant<span class="meta">Prof. Dr. <a href="https://www.unine.ch/physique/enseignements/gaetano-mileti/">Gaetano Mileti</a>, Fall 2019.</span></li>
+      <li>Complements to General Physics II, teaching assistant<span class="meta">Prof. Dr. <a href="https://www.unine.ch/physique/enseignements/gaetano-mileti/">Gaetano Mileti</a>, Spring 2019.</span></li>
+    </ul>
+
+    <h3>Lycée Jean-Piaget, Neuchâtel</h3>
+    <ul class="entries">
+      <li>Supply teacher for mathematics classes<span class="meta">Fall 2019.</span></li>
     </ul>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
+    <!-- VÉRIFIE cette adresse mail avant de publier. -->
     <p>
       <a href="mailto:antoine_gagnebin@sfu.ca">antoine_gagnebin@sfu.ca</a><br>
       Department of Mathematics, Simon Fraser University<br>
