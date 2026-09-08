@@ -11,21 +11,13 @@
 <style>
   :root {
     --paper: #ffffff;
-    --ink: #1b1b1d;
-    --muted: #6d6a66;
-    --rule: #e2e0dc;
-    --link: #34356b;
+    --ink: #1f2124;
+    --muted: #6b7378;
+    --rule: #d9e3e9;
+    --link: #14536f;      /* bleu alpin */
+    --deep: #0f3f56;      /* titres */
+    --warm: #b5651d;      /* accent chaud, usage minimal */
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --paper: #16161a;
-      --ink: #e8e6e1;
-      --muted: #9a968f;
-      --rule: #2e2e34;
-      --link: #a3a4e0;
-    }
-  }
-
   * { box-sizing: border-box; }
 
   body {
@@ -63,6 +55,15 @@
     line-height: 1.15;
     letter-spacing: -0.015em;
     margin: 0 0 0.35rem;
+    color: var(--deep);
+  }
+
+  /* filet degrade : ciel, horizon, derniere lumiere */
+  .rule {
+    height: 3px;
+    border: none;
+    margin: 0 0 1.6rem;
+    background: linear-gradient(90deg, #14536f, #7fa8c4, #f2c08a, #e0907e);
   }
 
   .role {
@@ -71,7 +72,7 @@
     margin: 0 0 1.4rem;
   }
 
-  .headmail { margin: -0.9rem 0 1.3rem; }
+  .headmail { margin: -0.9rem 0 1.5rem; }
 
   nav {
     line-height: 2;
@@ -97,6 +98,7 @@
     font-size: 1.05rem;
     font-weight: 500;
     margin: 0 0 1.1rem;
+    color: var(--deep);
   }
 
   h3 {
@@ -149,7 +151,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    color: var(--muted);
+    color: var(--warm);
     font-size: 0.85rem;
     line-height: 1.95;
   }
@@ -161,7 +163,7 @@
   }
   ul.entries li {
     padding-left: 0.9rem;
-    border-left: 1px solid var(--rule);
+    border-left: 2px solid var(--rule);
     margin-bottom: 1.05rem;
   }
 
@@ -197,6 +199,7 @@
     <p class="role">PIMS Postdoctoral Fellow, Department of Mathematics, Simon Fraser University</p>
     <!-- VÉRIFIE cette adresse mail (elle apparaît aussi en bas de page). -->
     <p class="headmail"><a href="mailto:antoine_gagnebin@sfu.ca">antoine_gagnebin@sfu.ca</a></p>
+    <hr class="rule">
     <nav>
       <a href="#about">About</a>
       <a href="#research">Research</a>
